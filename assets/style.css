@@ -1,0 +1,82 @@
+/* Base + variáveis para live preview */
+.maskavo-swiper{
+	position:relative;
+	padding:0px;
+	--arrow-v:50%;
+	--arrow-h:10px;       /* dentro */
+	--arrow-out:20px;     /* fora */
+	--dots-offset:0px;    /* + pra baixo, - pra cima */
+	--dots-gap:8px;
+  }
+  
+  /* Card */
+  .maskavo-card{
+	border-radius:12px;
+	text-align:center;
+	display:flex;
+	flex-direction:column;
+	overflow:hidden;
+	transition:transform .3s ease;
+  }
+  
+  /* Imagem / placeholder com mesma altura */
+  .maskavo-thumb{ display:block; position:relative; overflow:hidden; }
+  .maskavo-thumb-img{ width:100%; object-fit:cover; display:block; }
+  .maskavo-thumb.placeholder{
+	width:100%; background:#f3f3f3; color:#888;
+	display:flex; align-items:center; justify-content:center;
+  }
+  
+  /* Título */
+  .maskavo-titulo{ margin:12px 10px; font-weight:700; }
+  .maskavo-titulo-over{
+	position:absolute; left:0; right:0; bottom:10px;
+	margin:0; color:#fff; text-align:center;
+	z-index:3; padding:0 12px; font-weight:800;
+	text-shadow:0 2px 8px rgba(0,0,0,.5);
+  }
+  .maskavo-card .maskavo-titulo-over{ /* garante posição relativa do container */
+	position:absolute;
+  }
+  .maskavo-card{ position:relative; }
+  
+  /* Botão */
+  .maskavo-botao{
+	display:inline-block; text-decoration:none; font-weight:600;
+	background:#eaeaea; color:#333; padding:10px 18px; border-radius:8px;
+	transition:all .25s ease; margin-bottom:12px;
+  }
+  .maskavo-botao:hover{ filter:brightness(.95); }
+  
+  /* ===== Swiper Navigation ===== */
+  .maskavo-swiper .swiper-button-next,
+  .maskavo-swiper .swiper-button-prev{
+	color:#fff; font-size:20px;
+	top: 50%;
+  }
+  
+  /* Dentro */
+  .maskavo-swiper:not(.maskavo-nav-outside) .swiper-button-prev{ left: var(--arrow-h); }
+  .maskavo-swiper:not(.maskavo-nav-outside) .swiper-button-next{ right: var(--arrow-h); }
+  
+  /* Fora */
+  .maskavo-nav-outside .swiper-button-prev{ left: calc(-1 * var(--arrow-out)); }
+  .maskavo-nav-outside .swiper-button-next{ right: calc(-1 * var(--arrow-out)); }
+  
+  /* Pontos */
+  .maskavo-swiper .swiper-pagination{
+	bottom: calc(10px + var(--dots-offset));
+	text-align:center;
+  }
+  .maskavo-dots-outside .swiper-pagination{
+	position:absolute;
+	bottom: calc(-20px - var(--dots-offset));
+  }
+  .maskavo-swiper .swiper-pagination-bullet{
+	background:#ffffff; opacity:.7;
+	margin: 0 var(--dots-gap);
+  }
+  .maskavo-swiper .swiper-pagination-bullet-active{
+	background:#6b1bb1; opacity:1;
+  }
+  
